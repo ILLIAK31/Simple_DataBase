@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace App5_Illia_Karmazin_
 {
@@ -24,12 +25,16 @@ namespace App5_Illia_Karmazin_
         {
             try
             {
+                if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+                {
+                    throw new Exception();
+                }
                 Person person = new Person(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
                 list.Add(person);
             }
             catch (Exception ex)
             {
-                // Error
+                MessageBox.Show("Data problem");
             }
         }
         public class Person
@@ -51,10 +56,14 @@ namespace App5_Illia_Karmazin_
         {
             try
             {
-                listBox1.Items.Clear();
-                for (int index = 1;index < list.Count+1; ++index)
+                listView1.Items.Clear();
+                for (int index = 0; index < list.Count; ++index)
                 {
-                    listBox1.Items.Add("Person " + index);
+                    ListViewItem item = new ListViewItem(list[index].name);
+                    item.SubItems.Add(list[index].surname);
+                    item.SubItems.Add(list[index].date);
+                    item.SubItems.Add(list[index].gender);
+                    listView1.Items.Add(item);
                 }
             }
             catch (Exception ex)
@@ -62,12 +71,32 @@ namespace App5_Illia_Karmazin_
                 // Error
             }
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                int index = listBox1.SelectedIndex;
+                int index = 0;
+                if (listView1.SelectedIndices.Count > 0)
+                {
+                    index = listView1.SelectedIndices[0];
+                }
+                list.RemoveAt(index);
+            }
+            catch (Exception ex)
+            {
+                // Error 
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = 0;
+                if (listView1.SelectedIndices.Count > 0)
+                {
+                    index = listView1.SelectedIndices[0];
+                }
                 textBox1.Text = list[index].name;
                 textBox2.Text = list[index].surname;
                 textBox3.Text = list[index].date;
@@ -76,19 +105,6 @@ namespace App5_Illia_Karmazin_
             catch (Exception ex)
             {
                 // Error
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int index = listBox1.SelectedIndex;
-                list.RemoveAt(index);
-            }
-            catch (Exception ex)
-            {
-                // Error 
             }
         }
     }

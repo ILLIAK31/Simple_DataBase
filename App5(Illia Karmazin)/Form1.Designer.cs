@@ -40,7 +40,11 @@
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
-            listBox1 = new System.Windows.Forms.ListBox();
+            listView1 = new System.Windows.Forms.ListView();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            columnHeader4 = new System.Windows.Forms.ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -91,6 +95,7 @@
             // textBox1
             // 
             textBox1.Location = new System.Drawing.Point(45, 209);
+            textBox1.MaxLength = 30;
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(271, 27);
             textBox1.TabIndex = 5;
@@ -98,6 +103,7 @@
             // textBox2
             // 
             textBox2.Location = new System.Drawing.Point(45, 322);
+            textBox2.MaxLength = 30;
             textBox2.Name = "textBox2";
             textBox2.Size = new System.Drawing.Size(271, 27);
             textBox2.TabIndex = 6;
@@ -105,6 +111,7 @@
             // textBox3
             // 
             textBox3.Location = new System.Drawing.Point(45, 450);
+            textBox3.MaxLength = 30;
             textBox3.Name = "textBox3";
             textBox3.Size = new System.Drawing.Size(271, 27);
             textBox3.TabIndex = 7;
@@ -112,6 +119,7 @@
             // textBox4
             // 
             textBox4.Location = new System.Drawing.Point(45, 590);
+            textBox4.MaxLength = 30;
             textBox4.Name = "textBox4";
             textBox4.Size = new System.Drawing.Size(271, 27);
             textBox4.TabIndex = 8;
@@ -146,22 +154,44 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // listBox1
+            // listView1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new System.Drawing.Point(374, 273);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new System.Drawing.Size(510, 344);
-            listBox1.TabIndex = 12;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            listView1.HideSelection = false;
+            listView1.Location = new System.Drawing.Point(366, 287);
+            listView1.Name = "listView1";
+            listView1.Size = new System.Drawing.Size(518, 330);
+            listView1.TabIndex = 12;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = System.Windows.Forms.View.Details;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Name";
+            columnHeader1.Width = 130;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Surname";
+            columnHeader2.Width = 130;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Date";
+            columnHeader3.Width = 130;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Gender";
+            columnHeader4.Width = 130;
             // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(917, 678);
-            Controls.Add(listBox1);
+            Controls.Add(listView1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -194,6 +224,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
