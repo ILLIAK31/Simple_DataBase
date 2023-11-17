@@ -65,6 +65,8 @@ namespace App5_Illia_Karmazin_
         {
             try
             {
+                if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+                    throw new Exception(); 
                 int index1 = 0;
                 if (listView1.SelectedIndices.Count > 0)
                 {
@@ -86,7 +88,7 @@ namespace App5_Illia_Karmazin_
             }
             catch (Exception ex)
             {
-                // Error
+                MessageBox.Show("Data problem");
             }
         }
         private void button2_Click(object sender, EventArgs e)
