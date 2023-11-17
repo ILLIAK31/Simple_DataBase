@@ -31,6 +31,15 @@ namespace App5_Illia_Karmazin_
                 }
                 Person person = new Person(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
                 list.Add(person);
+                for (int index = listView1.Items.Count; index < list.Count; ++index)
+                {
+                    ListViewItem item = new ListViewItem(list[index].name);
+                    item.SubItems.Add(list[index].surname);
+                    item.SubItems.Add(list[index].date);
+                    item.SubItems.Add(list[index].gender);
+                    listView1.Items.Add(item);
+                }
+
             }
             catch (Exception ex)
             {
@@ -56,6 +65,15 @@ namespace App5_Illia_Karmazin_
         {
             try
             {
+                int index1 = 0;
+                if (listView1.SelectedIndices.Count > 0)
+                {
+                    index1 = listView1.SelectedIndices[0];
+                }
+                list[index1].name = textBox1.Text;
+                list[index1].surname = textBox2.Text;
+                list[index1].date = textBox3.Text;
+                list[index1].gender = textBox4.Text;
                 listView1.Items.Clear();
                 for (int index = 0; index < list.Count; ++index)
                 {
@@ -81,6 +99,7 @@ namespace App5_Illia_Karmazin_
                     index = listView1.SelectedIndices[0];
                 }
                 list.RemoveAt(index);
+                listView1.Items.RemoveAt(index);
             }
             catch (Exception ex)
             {

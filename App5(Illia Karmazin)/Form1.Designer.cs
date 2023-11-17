@@ -150,7 +150,7 @@
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(150, 69);
             button3.TabIndex = 11;
-            button3.Text = "Refresh";
+            button3.Text = "Update";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
